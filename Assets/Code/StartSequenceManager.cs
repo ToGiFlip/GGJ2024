@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartSequenceManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class StartSequenceManager : MonoBehaviour
 
     [SerializeField] private Sprite _secondFrame;
     [SerializeField] private float _secondFrameTime;
+
+    [SerializeField] private float _startDelay;
 
     private IEnumerator Start()
     {
@@ -19,5 +22,8 @@ public class StartSequenceManager : MonoBehaviour
 
         BackgroundManager.Instance.ChangeBackground(_secondFrame);
         yield return new WaitForSeconds(_secondFrameTime);
+
+        yield return new WaitForSeconds(_startDelay);
+        SceneManager.LoadScene("FartAndCough");
     }
 }

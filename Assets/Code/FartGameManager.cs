@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FartGameManager : MonoBehaviour
 {
@@ -11,11 +12,15 @@ public class FartGameManager : MonoBehaviour
     [SerializeField] private float _successRange;
     [SerializeField] private float _susRange;
     [SerializeField] private float _acceleration;
+    [SerializeField] private float _minAcceleration;
+    [SerializeField] private float _maxAcceleration;
     [SerializeField] private float _startDelay;
     [SerializeField] private float _endDelay;
 
     [Header("References")]
     [SerializeField] private Transform _coughIcon;
+    [SerializeField] private VFXPlayer _speedLinesVFX;
+    [SerializeField] private VFXPlayer _coughVFX;
     [SerializeField] private VFXPlayer[] _fartVFXs;
     [SerializeField] private AudioClip[] _fartSounds;
     [SerializeField] private AudioClip[] _coughSounds;
@@ -53,6 +58,8 @@ public class FartGameManager : MonoBehaviour
     {
         GameState = FartGameState.StartSequence;
 
+        _acceleration = Random.Range(_minAcceleration, _maxAcceleration);
+
         // Delay
         yield return new WaitForSeconds(_startDelay);
 
@@ -61,6 +68,10 @@ public class FartGameManager : MonoBehaviour
 
     private void Update()
     {
+        //Speed Lines init
+        _speedLinesVFX.PlayAnimation();
+
+
         if (GameState != FartGameState.GameActive)
             return;
 
@@ -105,11 +116,9 @@ public class FartGameManager : MonoBehaviour
     {
         _hasFarted = true;
         Debug.Log("Fart");
-        foreach(VFXPlayer fartVFX in _fartVFXs)
-        {
-            fartVFX.PlayAnimation();
-        }
-        PlayRandomClipFromList(_fartSounds);
+        
+        //PlayRandomClipFromList(_fartSounds);
+
         // TO DO: fart vfx
     }
 
@@ -118,8 +127,11 @@ public class FartGameManager : MonoBehaviour
         _hasCoughed = true;
         CoughValue = MeterValue;
 
-        PlayRandomClipFromList(_coughSounds);
+        //PlayRandomClipFromList(_coughSounds);
+
         // TO DO: cough vfx
+
+        _coughVFX.PlayAnimation();
 
         _coughIcon.SetParent(_coughIcon.parent.parent.parent.parent);
     }
@@ -139,6 +151,7 @@ public class FartGameManager : MonoBehaviour
                 Debug.Log("Coughed on time");
                 yield return new WaitForSeconds(_endDelay);
                 // Load the successful-scene
+                SceneManager.LoadScene("Success");
             }
             else if (FartValue - CoughValue <= _susRange)
             {
@@ -146,6 +159,7 @@ public class FartGameManager : MonoBehaviour
                 Debug.Log("Close enough! But a bit sus maybe ???");
                 yield return new WaitForSeconds(_endDelay);
                 // Load the "a bit too early, but successful"-scene
+                SceneManager.LoadScene("SusEarly");
             }
             else
             {
@@ -153,6 +167,7 @@ public class FartGameManager : MonoBehaviour
                 Debug.Log("Coughed too early!");
                 yield return new WaitForSeconds(_endDelay);
                 // Load the too early-scene
+                SceneManager.LoadScene("TooEarly");
             }
 
         }
@@ -164,6 +179,7 @@ public class FartGameManager : MonoBehaviour
                 Debug.Log("Coughed on time");
                 yield return new WaitForSeconds(_endDelay);
                 // Load the successful-scene
+                SceneManager.LoadScene("Success");
             }
             else if (CoughValue - FartValue <= _susRange)
             {
@@ -171,6 +187,7 @@ public class FartGameManager : MonoBehaviour
                 Debug.Log("Close enough! But a bit sus maybe ???");
                 yield return new WaitForSeconds(_endDelay);
                 // Load the "a bit too late, but successful"-scene
+                SceneManager.LoadScene("SusLate");
             }
             else
             {
@@ -178,6 +195,7 @@ public class FartGameManager : MonoBehaviour
                 Debug.Log("Coughed too late!");
                 yield return new WaitForSeconds(_endDelay);
                 // Load the too late-scene
+                SceneManager.LoadScene("TooLate");
             }
         }
     }

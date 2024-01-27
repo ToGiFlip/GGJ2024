@@ -8,6 +8,6 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            SceneManager.LoadScene("FartAndCough");
+            SceneManager.LoadScene("StartScene");
     }
 }

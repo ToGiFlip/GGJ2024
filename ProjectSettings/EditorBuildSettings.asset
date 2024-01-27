@@ -6,6 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: dcd0baff56162a246b4d2a793958bcef
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 26f75b0e5ae9d0c4f855ed62763a7014
+  - enabled: 1
     path: Assets/Scenes/FartAndCough.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Success.unity
+    guid: 57630a68ba8972c499c00f9c7b0fcab5
+  - enabled: 1
+    path: Assets/Scenes/SusEarly.unity
+    guid: d2f782afb5a64424a85a2921da734406
+  - enabled: 1
+    path: Assets/Scenes/SusLate.unity
+    guid: 91f6e171769735a4695c91619be3c224
+  - enabled: 1
+    path: Assets/Scenes/TooEarly.unity
+    guid: 981d0c35474a19f48a258b9ef200b1f3
+  - enabled: 1
+    path: Assets/Scenes/TooLate.unity
+    guid: 5b7d3fc08865002458b59dac8ae1512a
   m_configObjects: {}
