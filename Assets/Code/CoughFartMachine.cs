@@ -31,15 +31,10 @@ public class CoughFartMachine : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    private IEnumerator Start()
+    void Start()
     {
-        yield return new WaitForSeconds(_fartDelay);
-        _fartVFX.PlayAnimation();
-        PlayRandomClipFromList(_fartsSFX);
-
-        yield return new WaitForSeconds(_coughDelay);
-       _coughVFX.PlayAnimation();
-        PlayRandomClipFromList(_coughsSFX);
+        StartCoroutine(FinallyFart(_fartDelay));
+        StartCoroutine(FinallyCough(_coughDelay));
     }
 
     // Update is called once per frame
@@ -49,6 +44,30 @@ public class CoughFartMachine : MonoBehaviour
         {
             _endScreen.SetActive(true);
         }
+    }
+
+    private IEnumerator FinallyFart(float timeDelay)
+    {
+        yield return new WaitForSeconds(timeDelay);
+
+        _fartVFX.PlayAnimation();
+        PlayRandomClipFromList(_fartsSFX);
+
+        yield return new WaitForSeconds(2);
+
+        _hasFarted = true;
+    }
+
+    private IEnumerator FinallyCough(float timeDelay)
+    {
+        yield return new WaitForSeconds(timeDelay);
+
+        _coughVFX.PlayAnimation();
+        PlayRandomClipFromList(_coughsSFX);
+
+        yield return new WaitForSeconds(2);
+
+        _hasCoughed = true;
     }
 
     public void ReturnToMenu()

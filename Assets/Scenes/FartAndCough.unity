@@ -1141,9 +1141,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _successRange: 5
   _susRange: 15
-  _acceleration: 2
-  _startDelay: 0
-  _endDelay: 0
+  _acceleration: 0
+  _minAcceleration: 2
+  _maxAcceleration: 10
+  _startDelay: 2
+  _endDelay: 1
   _coughIcon: {fileID: 4533158314696031509}
   _speedLinesVFX: {fileID: 944431760}
   _coughVFX: {fileID: 1382372687}
@@ -2162,6 +2164,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1484410424}
   - {fileID: 1742908764}
   - {fileID: 2044687388}
   - {fileID: 1643682091}
@@ -2169,6 +2172,5 @@ SceneRoots:
   - {fileID: 1760536477}
   - {fileID: 1382372688}
   - {fileID: 944431761}
-  - {fileID: 1484410424}
   - {fileID: 1799912072}
   - {fileID: 1400453085}
