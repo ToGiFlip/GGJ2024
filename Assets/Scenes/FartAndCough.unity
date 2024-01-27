@@ -842,7 +842,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1484410424}
-  - component: {fileID: 1484410427}
   - component: {fileID: 1484410425}
   - component: {fileID: 1484410423}
   - component: {fileID: 1484410426}
@@ -898,11 +897,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c086c5b4ed310446ad827d2374e3a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SuccessRange: 5
-  SpottedRange: 15
-  FailedRange: 30
-  StartSpeed: 0
-  Acceleration: 0
+  _successRange: 0
+  _susRange: 0
+  _acceleration: 0
+  _startDelay: 0
+  _endDelay: 0
   _coughIcon: {fileID: 4533158314696031509}
   _fartVFXs:
   - {fileID: 2044687387}
@@ -914,10 +913,10 @@ MonoBehaviour:
   _coughSounds:
   - {fileID: 8300000, guid: f943588a8e3eda54fa303b4d3a8aa293, type: 3}
   GameState: 0
-  StartSequenceTotalTime: 0
   FartValue: 0
   MeterValue: 0
   CoughValue: 0
+  _speed: 0
 --- !u!82 &1484410426
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1014,22 +1013,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1484410427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484410422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a0e560cab6db34980556857753c209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _firstFrame: {fileID: 21300000, guid: 02e835f69390d30438f5eab66128a49a, type: 3}
-  _firstFrameTime: 3
-  _secondFrame: {fileID: 21300000, guid: 814dd55a849302e46a9240a57b582c8c, type: 3}
-  _secondFrameTime: 1
 --- !u!1 &1558310376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1268,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 02e835f69390d30438f5eab66128a49a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 814dd55a849302e46a9240a57b582c8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

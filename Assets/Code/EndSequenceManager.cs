@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EndSequenceManager : MonoBehaviour
 {
+    public 
+
     void Update()
     {
         if (FartGameManager.Instance.GameState == FartGameState.Results)
@@ -15,4 +17,9 @@ public class EndSequenceManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
     }
+}
+
+public enum Result
+{
+
 }

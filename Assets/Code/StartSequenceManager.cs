@@ -12,7 +12,7 @@ public class StartSequenceManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        FartGameManager.Instance.StartSequenceTotalTime = _firstFrameTime + _secondFrameTime;
+        // animations for the start sequence etc. 
 
         BackgroundManager.Instance.ChangeBackground(_firstFrame);
         yield return new WaitForSeconds(_firstFrameTime);

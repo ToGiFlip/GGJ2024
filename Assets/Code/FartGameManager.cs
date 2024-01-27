@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class FartGameManager : MonoBehaviour
@@ -7,11 +8,11 @@ public class FartGameManager : MonoBehaviour
     public static FartGameManager Instance;
 
     [Header("Settings")]
-    [SerializeField] private float SuccessRange;
-    [SerializeField] private float SpottedRange;
-    [SerializeField] private float FailedRange;
-    [SerializeField] private float StartSpeed;
-    [SerializeField] private float Acceleration;
+    [SerializeField] private float _successRange;
+    [SerializeField] private float _susRange;
+    [SerializeField] private float _acceleration;
+    [SerializeField] private float _startDelay;
+    [SerializeField] private float _endDelay;
 
     [Header("References")]
     [SerializeField] private Transform _coughIcon;
@@ -21,7 +22,6 @@ public class FartGameManager : MonoBehaviour
 
     [Header("Debug")]
     public FartGameState GameState;
-    public float StartSequenceTotalTime;
 
     public float FartValue;
     public float MeterValue;
@@ -29,10 +29,9 @@ public class FartGameManager : MonoBehaviour
 
     private bool _hasCoughed;
     private bool _hasFarted;
-    private float _time;
+    [SerializeField] private float _speed;
 
     private AudioSource _sfxPlayer;
-    WaitForSeconds _oneSecondDelay = new WaitForSeconds(1);
 
     private void Awake()
     {
@@ -55,7 +54,7 @@ public class FartGameManager : MonoBehaviour
         GameState = FartGameState.StartSequence;
 
         // Delay
-        yield return new WaitForSeconds(StartSequenceTotalTime);
+        yield return new WaitForSeconds(_startDelay);
 
         GameState = FartGameState.GameActive;
     }
@@ -90,8 +89,11 @@ public class FartGameManager : MonoBehaviour
 
     private void UpdateMeterValue()
     {
-        _time += Time.deltaTime;
-        MeterValue = Mathf.Pow(_time, _time);
+        //_time += Time.deltaTime;
+        //MeterValue = Mathf.Pow(_time, _time);
+
+        _speed += Time.deltaTime;
+        MeterValue = Mathf.Pow(_speed, _acceleration);
     }
 
     private bool SpaceIsPressed()
@@ -131,46 +133,53 @@ public class FartGameManager : MonoBehaviour
         {
             // coughed before the fart
 
-            if(FartValue - CoughValue <= SuccessRange)
+            if(FartValue - CoughValue <= _successRange)
             {
                 // success
                 Debug.Log("Coughed on time");
+                yield return new WaitForSeconds(_endDelay);
+                // Load the successful-scene
             }
-            else if (FartValue - CoughValue <= SpottedRange)
+            else if (FartValue - CoughValue <= _susRange)
             {
-                // success!
-                Debug.Log("Close enough! Somebody might have noticed");
+                // success-ish
+                Debug.Log("Close enough! But a bit sus maybe ???");
+                yield return new WaitForSeconds(_endDelay);
+                // Load the "a bit too early, but successful"-scene
             }
             else
             {
                 // failure
                 Debug.Log("Coughed too early!");
+                yield return new WaitForSeconds(_endDelay);
+                // Load the too early-scene
             }
 
         }
         else
         {
-            if (CoughValue - FartValue <= SuccessRange)
+            if (CoughValue - FartValue <= _successRange)
             {
                 // success
                 Debug.Log("Coughed on time");
+                yield return new WaitForSeconds(_endDelay);
+                // Load the successful-scene
             }
-            else if (CoughValue - FartValue <= SpottedRange)
+            else if (CoughValue - FartValue <= _susRange)
             {
-                // success!
-                Debug.Log("Close enough! Somebody might have noticed");
+                // success-ish
+                Debug.Log("Close enough! But a bit sus maybe ???");
+                yield return new WaitForSeconds(_endDelay);
+                // Load the "a bit too late, but successful"-scene
             }
             else
             {
                 // failure
                 Debug.Log("Coughed too late!");
+                yield return new WaitForSeconds(_endDelay);
+                // Load the too late-scene
             }
         }
-
-        // Transition delay
-        yield return _oneSecondDelay;
-
-        // TO DO: to celebrate or to not celebrate? that is the question
     }
 
     private void PlayRandomClipFromList(AudioClip[] listOfClips)
