@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class FartGameManager : MonoBehaviour
 {
-    public static FartGameManager instance;
+    public static FartGameManager Instance;
+
+    [Header("Settings")]
+    [SerializeField] private float SuccessRange;
+    [SerializeField] private float SpottedRange;
+    [SerializeField] private float FailedRange;
+    [SerializeField] private float StartSpeed;
+    [SerializeField] private float Acceleration;
 
     [Header("References")]
     [SerializeField] private Transform _coughIcon;
+    [SerializeField] private VFXPlayer[] _fartVFXs;
     [SerializeField] private AudioClip[] _fartSounds;
     [SerializeField] private AudioClip[] _coughSounds;
 
@@ -17,12 +25,11 @@ public class FartGameManager : MonoBehaviour
 
     public float FartValue;
     public float MeterValue;
+    public float CoughValue;
 
     private bool _hasCoughed;
     private bool _hasFarted;
     private float _time;
-    [SerializeField] private float _coughTime;
-    [SerializeField] private float _fartTime;
 
     private AudioSource _sfxPlayer;
     WaitForSeconds _oneSecondDelay = new WaitForSeconds(1);
@@ -30,8 +37,8 @@ public class FartGameManager : MonoBehaviour
     private void Awake()
     {
         // Initiliaze singleton
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
         else
             Destroy(this);
 
@@ -95,8 +102,11 @@ public class FartGameManager : MonoBehaviour
     private void Fart()
     {
         _hasFarted = true;
-        _fartTime = _time;
         Debug.Log("Fart");
+        foreach(VFXPlayer fartVFX in _fartVFXs)
+        {
+            fartVFX.PlayAnimation();
+        }
         PlayRandomClipFromList(_fartSounds);
         // TO DO: fart vfx
     }
@@ -104,13 +114,12 @@ public class FartGameManager : MonoBehaviour
     private void Cough()
     {
         _hasCoughed = true;
-        _coughTime = _time;
-        Debug.Log($"Coughed at < {MeterValue}");
+        CoughValue = MeterValue;
 
         PlayRandomClipFromList(_coughSounds);
         // TO DO: cough vfx
 
-        _coughIcon.parent = _coughIcon.parent.parent.parent.parent;
+        _coughIcon.SetParent(_coughIcon.parent.parent.parent.parent);
     }
 
     private IEnumerator CheckResults()
@@ -118,34 +127,43 @@ public class FartGameManager : MonoBehaviour
         GameState = FartGameState.Results;
 
         // check results
-        if(_coughTime < _fartTime)
+        if(CoughValue < FartValue)
         {
             // coughed before the fart
 
-            if(_fartTime - _coughTime > 0.1f)
+            if(FartValue - CoughValue <= SuccessRange)
             {
-                // failure
-                Debug.Log("Coughed too early");
+                // success
+                Debug.Log("Coughed on time");
+            }
+            else if (FartValue - CoughValue <= SpottedRange)
+            {
+                // success!
+                Debug.Log("Close enough! Somebody might have noticed");
             }
             else
             {
-                // success!
-                Debug.Log("Coughed on time");
+                // failure
+                Debug.Log("Coughed too early!");
             }
+
         }
         else
         {
-            // coughed after the fart
-
-            if (_coughTime - _fartTime > 0.1f)
+            if (CoughValue - FartValue <= SuccessRange)
             {
-                // failure
-                Debug.Log("Coughed too late");
+                // success
+                Debug.Log("Coughed on time");
+            }
+            else if (CoughValue - FartValue <= SpottedRange)
+            {
+                // success!
+                Debug.Log("Close enough! Somebody might have noticed");
             }
             else
             {
-                // success!
-                Debug.Log("Coughed on time");
+                // failure
+                Debug.Log("Coughed too late!");
             }
         }
 

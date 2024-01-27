@@ -18,24 +18,23 @@ public class FartMeter : MonoBehaviour
     private void Start()
     {
         _fartIcon.rectTransform.anchoredPosition = new Vector3(
-        (_slider.GetComponentInParent<RectTransform>().rect.width / 100) * FartGameManager.instance.FartValue,
+        (_slider.GetComponentInParent<RectTransform>().rect.width / 100) * FartGameManager.Instance.FartValue,
         0,
         0);
     }
 
     private void Update()
     {
-        if (FartGameManager.instance.GameState == FartGameState.GameActive)
+        if (FartGameManager.Instance.GameState == FartGameState.GameActive)
         {
-            _slider.value = FartGameManager.instance.MeterValue;
-            Debug.Log($"> {_slider.value}");
+            _slider.value = FartGameManager.Instance.MeterValue;
         }
     }
 
     private void UpdateBarColor(float value)
     {
         // Interpolate the color based on the slider value (0 to 1)
-        Color lerpedColor = Color.Lerp(_barNotFilledColor, _barFilledColor, value);
+        Color lerpedColor = Color.Lerp(_barNotFilledColor, _barFilledColor, value / _slider.maxValue);
 
         // Update the fill color of the health bar image
         _fill.color = lerpedColor;
