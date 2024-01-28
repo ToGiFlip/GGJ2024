@@ -50,7 +50,10 @@ public class CoughFartMachine : MonoBehaviour
     {
         yield return new WaitForSeconds(timeDelay);
 
-        _fartVFX.PlayAnimation();
+        if (_fartVFX)
+        {
+            _fartVFX.PlayAnimation();
+        }
         PlayRandomClipFromList(_fartsSFX);
 
         yield return new WaitForSeconds(2);
@@ -62,7 +65,10 @@ public class CoughFartMachine : MonoBehaviour
     {
         yield return new WaitForSeconds(timeDelay);
 
-        _coughVFX.PlayAnimation();
+        if (_coughVFX)
+        {
+            _coughVFX.PlayAnimation();
+        }
         PlayRandomClipFromList(_coughsSFX);
 
         yield return new WaitForSeconds(2);
@@ -82,6 +88,8 @@ public class CoughFartMachine : MonoBehaviour
 
     private void PlayRandomClipFromList(AudioClip[] listOfClips)
     {
+        if(listOfClips.Length == 0) return;
+        
         int randomClipIndex = Random.Range(0, listOfClips.Length);
         _sfxPlayer.pitch = Random.Range(1f, 1.2f);
         _sfxPlayer.PlayOneShot(listOfClips[randomClipIndex]);

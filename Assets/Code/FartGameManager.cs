@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -82,8 +80,17 @@ public class FartGameManager : MonoBehaviour
 
         if (MeterValue >= 100)
         {
-            if(_hasCoughed == false)
+            if (_hasCoughed == false)
+            {
+                if (Random.Range(0, 10) == 0)
+                {
+                    // Load explosion scene
+                    GameState = FartGameState.Results;
+                    SceneManager.LoadScene("Explosion");
+                    return;
+                }
                 Cough();
+            }
 
             StartCoroutine(CheckResults());
             return;
