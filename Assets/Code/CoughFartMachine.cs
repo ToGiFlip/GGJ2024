@@ -97,7 +97,7 @@ public class CoughFartMachine : MonoBehaviour
         }
 
         _resultMsg.SetActive(true);
-        
+        _sfxPlayer.PlayOneShot(_resultSound);
 
         yield return new WaitForSeconds(_resultsTimer);
         _resultMsg.SetActive(false);
