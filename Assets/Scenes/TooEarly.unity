@@ -330,6 +330,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2536504346151214922, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e275c5bc4bd2794c95b69821ac0ff1e, type: 3}
     - target: {fileID: 3001120307128724994, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
       propertyPath: m_Name
       value: FX_Manager
@@ -342,6 +346,14 @@ PrefabInstance:
       propertyPath: _coughDelay
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 3244766192393530485, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
+      propertyPath: _fartsSFX.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244766192393530485, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
+      propertyPath: _fartsSFX.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 25785b8de5c5d664fb361439e116ecde, type: 3}
     - target: {fileID: 3926050812559674890, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
