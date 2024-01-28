@@ -22,6 +22,7 @@ public class FartGameManager : MonoBehaviour
     [SerializeField] private VFXPlayer[] _fartVFXs;
     [SerializeField] private AudioClip[] _fartSounds;
     [SerializeField] private AudioClip[] _coughSounds;
+    [SerializeField] private AudioClip[] _focusSounds;
 
     [Header("Debug")]
     public FartGameState GameState;
@@ -60,6 +61,8 @@ public class FartGameManager : MonoBehaviour
 
         // Delay
         yield return new WaitForSeconds(_startDelay);
+
+        PlayRandomClipFromList(_focusSounds);
 
         GameState = FartGameState.GameActive;
     }

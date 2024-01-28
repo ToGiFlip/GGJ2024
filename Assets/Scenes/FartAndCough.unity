@@ -1158,6 +1158,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7e6e977c66b97134eb1551c9cecfb4d7, type: 3}
   _coughSounds:
   - {fileID: 8300000, guid: f943588a8e3eda54fa303b4d3a8aa293, type: 3}
+  _focusSounds:
+  - {fileID: 8300000, guid: cf4d59bd8a062954cb06071ec2f9ee1a, type: 3}
   GameState: 0
   FartValue: 0
   MeterValue: 0
