@@ -10487,6 +10487,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1478819713}
     - target: {fileID: 3244766192393530485, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
+      propertyPath: _resultSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6922fb8b775001c499783a7e0ec486ae, type: 3}
+    - target: {fileID: 3244766192393530485, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
       propertyPath: _confettiEmitter
       value: 
       objectReference: {fileID: 1418743122}
