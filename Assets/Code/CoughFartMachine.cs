@@ -8,25 +8,32 @@ public class CoughFartMachine : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _fartDelay;
     [SerializeField] private float _coughDelay;
+    [SerializeField] private float _resultsTimer;
 
     [Header("References")]
     [SerializeField] private VFXPlayer _fartVFX;
     [SerializeField] private AudioClip[] _fartsSFX;
+    [SerializeField] private ParticleSystem _confettiEmitter;
 
     [SerializeField] private VFXPlayer _coughVFX;
     [SerializeField] private AudioClip[] _coughsSFX;
 
+    [SerializeField] private AudioClip _resultSound;
+
+    [SerializeField] private GameObject _resultMsg;
     [SerializeField] private GameObject _endScreen;
 
     private AudioSource _sfxPlayer;
     private bool _hasCoughed;
     private bool _hasFarted;
 
+
     void Awake()
     {
         _sfxPlayer = GetComponent<AudioSource>();
         _hasCoughed = false;
         _hasFarted = false;
+        _resultMsg.SetActive(false);
         _endScreen.SetActive(false);
     }
 
@@ -36,13 +43,14 @@ public class CoughFartMachine : MonoBehaviour
         StartCoroutine(FinallyFart(_fartDelay));
         StartCoroutine(FinallyCough(_coughDelay));
     }
+    
 
     // Update is called once per frame
     void Update()
     {
         if(_hasCoughed && _hasFarted)
         {
-            _endScreen.SetActive(true);
+            StartCoroutine(ShowResults());
         }
     }
 
@@ -76,6 +84,22 @@ public class CoughFartMachine : MonoBehaviour
         _hasCoughed = true;
     }
 
+    private IEnumerator ShowResults()
+    {
+        if(_confettiEmitter != null)
+        {
+            _confettiEmitter.Play(true);
+        }
+
+        _resultMsg.SetActive(true);
+        
+
+        yield return new WaitForSeconds(_resultsTimer);
+        _resultMsg.SetActive(false);
+        _endScreen.SetActive(true);
+    }
+
+    #region UI Functionality
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -85,6 +109,7 @@ public class CoughFartMachine : MonoBehaviour
     {
         SceneManager.LoadScene("StartScene");
     }
+    #endregion
 
     private void PlayRandomClipFromList(AudioClip[] listOfClips)
     {

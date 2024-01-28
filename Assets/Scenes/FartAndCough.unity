@@ -279,7 +279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -300}
+  m_AnchoredPosition: {x: -200, y: -400}
   m_SizeDelta: {x: -400, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &344308480
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   _endDelay: 1
   _coughIcon: {fileID: 4533158314696031509}
   _speedLinesVFX: {fileID: 944431760}
-  _coughVFX: {fileID: 1382372687}
+  _coughVFX: {fileID: 0}
   _fartVFXs:
   - {fileID: 2044687387}
   - {fileID: 1643682090}
@@ -1516,7 +1516,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 814dd55a849302e46a9240a57b582c8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88c5ae0ef7d2b3896b937226eadd88ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1818,8 +1818,8 @@ Canvas:
   m_GameObject: {fileID: 1799912068}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1830,7 +1830,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1799912072
 RectTransform:

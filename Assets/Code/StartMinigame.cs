@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class StartMinigame : MonoBehaviour
 {
-[SerializeField] private float _waitTime;
+    [SerializeField] private VFXPlayer _classmatesVFX;
+
+    [SerializeField] private float _waitTime;
 
     // Start is called before the first frame update
     private IEnumerator Start()
@@ -17,6 +19,6 @@ public class StartMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _classmatesVFX.PlayAnimation();
     }
 }

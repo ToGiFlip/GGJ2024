@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using Code;
+//using Code;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -144,7 +144,7 @@ public class FartGameManager : MonoBehaviour
 
         // TO DO: cough vfx
 
-        _coughVFX.PlayAnimation();
+        //_coughVFX.PlayAnimation();
 
         _coughIcon.SetParent(_coughIcon.parent.parent.parent.parent);
     }

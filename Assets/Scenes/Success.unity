@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 59329363}
   - component: {fileID: 59329362}
   m_Layer: 0
-  m_Name: Particle System (1)
+  m_Name: Confetti_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,12 +149,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59329360}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7032235, y: 0.07400471, z: -0.07400471, w: -0.7032235}
-  m_LocalPosition: {x: 7.46, y: -7.09, z: 0}
+  m_LocalRotation: {x: -0, y: 0.24481502, z: -0.000000029802322, w: -0.96956986}
+  m_LocalPosition: {x: 13.649469, y: 0, z: 4.592273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 735716746}
+  m_Father: {fileID: 1418743123}
   m_LocalEulerAnglesHint: {x: 257.985, y: 90, z: -90}
 --- !u!199 &59329362
 ParticleSystemRenderer:
@@ -245,7 +245,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5125,39 +5125,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &735716745
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 735716746}
-  m_Layer: 0
-  m_Name: Confetti
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &735716746
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735716745}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1418743123}
-  - {fileID: 59329361}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &933841591
 GameObject:
   m_ObjectHideFlags: 0
@@ -5262,7 +5229,7 @@ GameObject:
   - component: {fileID: 1418743122}
   - component: {fileID: 1418743121}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Confetti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5357,7 +5324,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -10249,8 +10216,9 @@ Transform:
   m_LocalPosition: {x: -6.93, y: -7.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 735716746}
+  m_Children:
+  - {fileID: 59329361}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -73.673, y: 90, z: -90}
 --- !u!1001 &1478819712
 PrefabInstance:
@@ -10538,4 +10506,4 @@ SceneRoots:
   - {fileID: 1478819712}
   - {fileID: 8503169877993391336}
   - {fileID: 1847822729}
-  - {fileID: 735716746}
+  - {fileID: 1418743123}
