@@ -409,7 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animToPlay: {fileID: 1923827356}
   _delay: 0
-  _soundToPlay: {fileID: 8300000, guid: 25785b8de5c5d664fb361439e116ecde, type: 3}
+  _soundToPlay: {fileID: 8300000, guid: f1bdf9f2b46a3a946a4fe70ae349937b, type: 3}
 --- !u!4 &1601967048
 Transform:
   m_ObjectHideFlags: 0
