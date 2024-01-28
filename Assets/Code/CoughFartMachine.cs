@@ -26,6 +26,7 @@ public class CoughFartMachine : MonoBehaviour
     private AudioSource _sfxPlayer;
     private bool _hasCoughed;
     private bool _hasFarted;
+    private bool _seenResults;
 
 
     void Awake()
@@ -43,14 +44,18 @@ public class CoughFartMachine : MonoBehaviour
         StartCoroutine(FinallyFart(_fartDelay));
         StartCoroutine(FinallyCough(_coughDelay));
     }
-    
+
 
     // Update is called once per frame
     void Update()
     {
         if(_hasCoughed && _hasFarted)
         {
-            StartCoroutine(ShowResults());
+            if(!_seenResults){
+                
+                StartCoroutine(ShowResults());
+                _seenResults = true;
+            } 
         }
     }
 
