@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
+using Code;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class FartGameManager : MonoBehaviour
 {
@@ -150,6 +153,12 @@ public class FartGameManager : MonoBehaviour
     {
         GameState = FartGameState.Results;
 
+        var score = Math.Abs(FartValue - CoughValue);
+        score /= _successRange;
+        score = Mathf.Clamp(score, 0, 5);
+        score = 20 * (5 - score);
+        ScoreManager.AddScore(score);
+        
         // check results
         if(CoughValue < FartValue)
         {
