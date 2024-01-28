@@ -348,12 +348,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3244766192393530485, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
       propertyPath: _fartsSFX.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3244766192393530485, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
       propertyPath: _fartsSFX.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 25785b8de5c5d664fb361439e116ecde, type: 3}
+    - target: {fileID: 3244766192393530485, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
+      propertyPath: _fartsSFX.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 63c364fa9a402bf43b6cf6d6867ebb0a, type: 3}
     - target: {fileID: 3926050812559674890, guid: b0abb26ac5910684b94dc2b3da26853b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
