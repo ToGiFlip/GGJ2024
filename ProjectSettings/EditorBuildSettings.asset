@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TooLate.unity
     guid: 5b7d3fc08865002458b59dac8ae1512a
+  - enabled: 1
+    path: Assets/Scenes/Explosion.unity
+    guid: 789d9c4accb4d0f49a95ca19234f5f7d
   m_configObjects: {}
