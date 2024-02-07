@@ -257,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 2137618720791246495, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: _spriteAnimation
       value: 
-      objectReference: {fileID: 7400000, guid: ba673c8c74d1726bdab849e022cf7356, type: 2}
+      objectReference: {fileID: 7400000, guid: bb905c7b24810f84fba55749f8afe2cc, type: 2}
     - target: {fileID: 3281680025513126751, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: m_Name
       value: Cough_FX
@@ -358,30 +358,30 @@ PrefabInstance:
     - target: {fileID: 2137618720791246495, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: _spriteAnimation
       value: 
-      objectReference: {fileID: 7400000, guid: 0136c65b9f18ccf46a86f2b00d1a154f, type: 2}
+      objectReference: {fileID: 7400000, guid: 01eeaa7a967cafa48865dd4999236af5, type: 2}
     - target: {fileID: 3281680025513126751, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: m_Name
       value: Fart_FX
       objectReference: {fileID: 0}
     - target: {fileID: 3399206221221147813, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3399206221221147813, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3399206221221147813, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3399206221221147813, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.82
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 3399206221221147813, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.72
+      value: -1.85
       objectReference: {fileID: 0}
     - target: {fileID: 3399206221221147813, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -417,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3399206221221147813, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7628189730911899046, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: m_FlipX
