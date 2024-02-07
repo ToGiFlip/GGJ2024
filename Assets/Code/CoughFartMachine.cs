@@ -10,6 +10,9 @@ public class CoughFartMachine : MonoBehaviour
     [SerializeField] private float _coughDelay;
     [SerializeField] private float _resultsTimer;
 
+    [SerializeField] private float _fartVFXSpeed = 1;
+    [SerializeField] private float _coughVFXSpeed = 1;
+
     [Header("References")]
     [SerializeField] private VFXPlayer _fartVFX;
     [SerializeField] private AudioClip[] _fartsSFX;
@@ -65,7 +68,7 @@ public class CoughFartMachine : MonoBehaviour
 
         if (_fartVFX)
         {
-            _fartVFX.PlayAnimation();
+            _fartVFX.PlayAnimationWithSpeed(_fartVFXSpeed);
         }
         PlayRandomClipFromList(_fartsSFX);
 
@@ -80,7 +83,7 @@ public class CoughFartMachine : MonoBehaviour
 
         if (_coughVFX)
         {
-            _coughVFX.PlayAnimation();
+            _coughVFX.PlayAnimationWithSpeed(_coughVFXSpeed);
         }
         PlayRandomClipFromList(_coughsSFX);
 

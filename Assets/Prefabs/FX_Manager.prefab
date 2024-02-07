@@ -51,6 +51,8 @@ MonoBehaviour:
   _fartDelay: 0.5
   _coughDelay: 0.5
   _resultsTimer: 3
+  _fartVFXSpeed: 1.1
+  _coughVFXSpeed: 3
   _fartVFX: {fileID: 2517742714269678464}
   _fartsSFX:
   - {fileID: 8300000, guid: 7e6e977c66b97134eb1551c9cecfb4d7, type: 3}
@@ -252,7 +254,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2137618720791246495, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: _testButton
-      value: 32
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 2137618720791246495, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: _spriteAnimation
@@ -353,7 +355,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2137618720791246495, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: _testButton
-      value: 32
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 2137618720791246495, guid: 674b998e5d82e60e3959d6c4a55ff1c7, type: 3}
       propertyPath: _spriteAnimation

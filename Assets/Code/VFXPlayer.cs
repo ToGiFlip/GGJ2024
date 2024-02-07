@@ -28,4 +28,10 @@ public class VFXPlayer : MonoBehaviour
     {
         _animator.Play("PlayVFX");
     }
+
+    public void PlayAnimationWithSpeed(float speed)
+    {
+        _animator.speed = speed;
+        _animator.Play("PlayVFX");
+    }
 }
