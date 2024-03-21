@@ -95,7 +95,10 @@ public class FartGameManager : MonoBehaviour
                     SceneManager.LoadScene("Explosion");
                     return;
                 }
-                Cough();
+                else
+                {
+                    Cough();
+                }
             }
 
             StartCoroutine(CheckResults());
